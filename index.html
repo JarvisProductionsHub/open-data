@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open data van Mosaic Solutions</title>
+  <meta name="description" content="Open CSV-datasets van Mosaic Solutions, vrij te gebruiken onder CC BY 4.0. Elke tabel heeft een bron en een peildatum.">
+  <meta name="author" content="Mosaic Solutions">
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.nl">
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --ink: #1d1a16;
+      --muted: #5b564e;
+      --card: #fffcf8;
+      --line: #e3dcd2;
+      --accent: #154f3c;
+      --accent-hover: #0e3a2c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 1.05rem/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    header, main, footer {
+      width: min(46rem, calc(100% - 2rem));
+      margin-inline: auto;
+    }
+    header { padding: 2.75rem 0 1.5rem; }
+    .kicker {
+      margin: 0 0 0.4rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0 0 1rem;
+      font-size: 1.85rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+    header p, .note p, .card p { margin: 0 0 0.85rem; }
+    header p:last-child, .note p:last-child, .card p:last-child { margin-bottom: 0; }
+    .license {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    nav {
+      margin: 0 0 1.75rem;
+      padding: 0.9rem 1rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    nav p {
+      margin: 0 0 0.4rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      columns: 2;
+      gap: 0 1.5rem;
+    }
+    nav li { break-inside: avoid; margin: 0.15rem 0; }
+    @media (max-width: 36rem) {
+      nav ul { columns: 1; }
+    }
+    .card, .note {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.2rem 1.25rem 1.3rem;
+      margin-bottom: 1rem;
+    }
+    dl {
+      margin: 0.2rem 0 1rem;
+      display: grid;
+      gap: 0.55rem;
+    }
+    dl div { display: grid; grid-template-columns: 7.2rem 1fr; gap: 0.6rem; }
+    dt {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    dd { margin: 0; }
+    @media (max-width: 36rem) {
+      dl div { grid-template-columns: 1fr; gap: 0.15rem; }
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.1rem;
+      align-items: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .btn:hover { background: var(--accent-hover); color: #fff; }
+    footer {
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    footer p { margin: 0 0 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="kicker">Mosaic Solutions · open data</p>
+    <h1>Open datasets</h1>
+    <p>Mosaic Solutions is een kleine Nederlandse uitgever. We maken keuzehulpen die een concrete vraag beantwoorden: welke fietsendrager je auto aankan, hoeveel Wh je nodig hebt, of je een dakkapel zonder vergunning mag plaatsen. Elk getal komt van een fabrikant, een overheid of een open databron (CBS, KNMI, PVGIS, NEDU), met de datum erbij. Waar we zelf rekenen, laten we de formule zien. De datasets zijn gratis te downloaden als CSV en vrij te gebruiken met bronvermelding (CC BY 4.0).</p>
+    <p>Zo verdienen we: de productsites krijgen een vergoeding via affiliate-links (o.a. bol.com). Kozijnraad, Dakkapelraad en Opslagraad krijgen een vergoeding van aangesloten vakbedrijven voor offerte-aanvragen. Op de inhoud heeft dat geen invloed, en per site staat uitgelegd hoe het werkt.</p>
+    <p class="license">Licentie: <a href="https://creativecommons.org/licenses/by/4.0/deed.nl">CC BY 4.0</a>. Bij hergebruik vermeld je Mosaic Solutions en de oorspronkelijke bronnen in de dataset. Zie ook het bestand <a href="LICENSE">LICENSE</a>.</p>
+  </header>
+  <nav aria-label="Datasets">
+    <p>Tien datasets</p>
+    <ul>
+      <li><a href="#fietsdiefstal-per-gemeente">Fietsdiefstal per gemeente 2025 (CBS)</a></li>
+      <li><a href="#powerstations-prijs-per-wh">Powerstations: prijs per Wh, Wh per kg en laadcycli</a></li>
+      <li><a href="#dakkoffers-gewicht-en-volume">Dakkoffers: volume, eigen gewicht en max. lading</a></li>
+      <li><a href="#kinderfiets-maattabel">Maattabel kinderfietsen en loopfietsen volgens de fabrikanten</a></li>
+      <li><a href="#robotmaaiers">Robotmaaiers: oppervlak, helling, navigatie en prijs per m²</a></li>
+      <li><a href="#sup-boards">SUP-boards: maten, volume en maximaal draagvermogen</a></li>
+      <li><a href="#hometrainers">Hometrainers: max. gebruikersgewicht, instap en afmetingen</a></li>
+      <li><a href="#pizzaovens">Pizzaovens: brandstof, vermogen, gasverbruik en pizzamaat</a></li>
+      <li><a href="#hondenbenches">Hondenbenches en autobenches: maten en materiaal</a></li>
+      <li><a href="#prijsindex-kozijnen-2026">Prijsindex kozijnen 2026</a></li>
+    </ul>
+  </nav>
+  <main>
+    <article class="card" id="fietsdiefstal-per-gemeente">
+      <h2>Fietsdiefstal per gemeente 2025 (CBS)</h2>
+      <p>Zoekbare tabel van alle Nederlandse gemeenten: aantal fietsdiefstallen in 2024 en 2025, per 1.000 inwoners en het percentage opgehelderd. Officiële CBS-cijfers, zonder eigen schattingen.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>CBS StatLine, tabel 83651NED (tabel gewijzigd op 2 maart 2026, voorlopige cijfers 2025).</dd></div>
+        <div><dt>Peildatum</dt><dd>Opgehaald op 22 oktober 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>342 gemeenten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/fietsdiefstal-per-gemeente-2025.csv" download>Download CSV</a>
+        <a href="https://www.tweewielerwijzer.nl/gids/fietsdiefstal-per-gemeente#bron-vermelden">Bekijk op Tweewielerwijzer</a>
+      </p>
+    </article>
+    <article class="card" id="powerstations-prijs-per-wh">
+      <h2>Powerstations: prijs per Wh, Wh per kg en laadcycli</h2>
+      <p>Vergelijking van 13 draagbare powerstations op wattuur, vermogen, gewicht en laadcycli, met zelf berekende kolommen voor euro per Wh, Wh per kg en euro per kWh over de cycli.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Fabrikantspecificaties (onder meer EcoFlow, Jackery, Bluetti en Anker). Prijzen van bol.com.</dd></div>
+        <div><dt>Peildatum</dt><dd>11 november 2026 (prijzen). Specificaties uit fabrikantbronnen, bereik 23 oktober tot en met 11 november 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>13 producten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/powerstations-prijs-per-wh.csv" download>Download CSV</a>
+        <a href="https://powerstationwijzer.nl/wh-berekenen#dataset">Bekijk op Powerstationwijzer</a>
+      </p>
+    </article>
+    <article class="card" id="dakkoffers-gewicht-en-volume">
+      <h2>Dakkoffers: volume, eigen gewicht en max. lading</h2>
+      <p>Negen dakkoffers naast elkaar: volume, eigen gewicht, maximale lading, het totaal van koffer plus lading, buitenmaten, skilengte en of de koffer dubbelzijdig opent. Bedoeld als naslag bij het berekenen van dakbelasting.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Fabrikantpagina's (onder meer Thule, Hapro, Farad en Artplast via Obelink) en ANWB-test. Prijzen van bol.com.</dd></div>
+        <div><dt>Peildatum</dt><dd>11 november 2026 (prijzen). Specificaties uit fabrikantbronnen, bereik 23 oktober tot en met 11 november 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>9 producten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/dakkoffers-gewicht-en-volume.csv" download>Download CSV</a>
+        <a href="https://reisautowijzer.nl/dakbelasting-berekenen#dataset">Bekijk op Reisautowijzer</a>
+      </p>
+    </article>
+    <article class="card" id="kinderfiets-maattabel">
+      <h2>Maattabel kinderfietsen en loopfietsen volgens de fabrikanten</h2>
+      <p>Het maatadvies van de merken naast elkaar voor 17 loopfietsen en kinderfietsen: binnenbeenlengte, lengte van het kind, vanaf-leeftijd, gewicht van de fiets en maximaal kindgewicht.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Fabrikantmaattabellen (onder meer Puky, Volare, Veloretti en BERG). Prijzen van bol.com.</dd></div>
+        <div><dt>Peildatum</dt><dd>11 november 2026 (prijzen). Specificaties uit fabrikantbronnen, bereik 23 oktober tot en met 11 november 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>17 producten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/kinderfiets-maattabel-fabrikanten.csv" download>Download CSV</a>
+        <a href="https://kinderfietswijzer.nl/kinderfiets-maat#dataset">Bekijk op Kinderfietswijzer</a>
+      </p>
+    </article>
+    <article class="card" id="robotmaaiers">
+      <h2>Robotmaaiers: oppervlak, helling, navigatie en prijs per m²</h2>
+      <p>Zeventien robotmaaiers vergeleken op navigatie (RTK, netwerk-RTK, camera, lidar of draad), maximaal oppervlak, helling, vierwielaandrijving, maaibreedte en -hoogte, geluid en euro per vierkante meter.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Fabrikantpagina's en handleidingen (onder meer Segway Navimow, Mammotion, Ecovacs, Gardena, Worx, Eufy en Dreame). Prijzen van bol.com.</dd></div>
+        <div><dt>Peildatum</dt><dd>11 november 2026 (prijzen). Specificaties uit fabrikantbronnen, bereik 23 oktober tot en met 11 november 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>17 producten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/robotmaaiers-oppervlak-helling-navigatie.csv" download>Download CSV</a>
+        <a href="https://maairobotwijzer.nl/robotmaaier-keuzehulp#dataset">Bekijk op Maairobotwijzer</a>
+      </p>
+    </article>
+    <article class="card" id="sup-boards">
+      <h2>SUP-boards: maten, volume en maximaal draagvermogen</h2>
+      <p>Negentien SUP-boards met lengte, breedte, dikte, volume, maximaal draagvermogen, volume per kilogram, gewicht, maximale druk en het aantal personen.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Fabrikantspecificaties (onder meer Aqua Marina, Jobe, Starboard en Red Paddle). Prijzen van bol.com.</dd></div>
+        <div><dt>Peildatum</dt><dd>11 november 2026 (prijzen). Specificaties uit fabrikantbronnen, bereik 23 oktober tot en met 11 november 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>19 producten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/sup-boards-maten-volume-draagvermogen.csv" download>Download CSV</a>
+        <a href="https://supwijzer.nl/sup-board-maat-berekenen#dataset">Bekijk op SUPwijzer</a>
+      </p>
+    </article>
+    <article class="card" id="hometrainers">
+      <h2>Hometrainers: max. gebruikersgewicht, instap en afmetingen</h2>
+      <p>Vijftien hometrainers, ligfietsen en stoelfietsen naast elkaar: maximaal gebruikersgewicht, lage instap, weerstandsniveaus, vliegwiel, eigen gewicht, afmetingen, Bluetooth en of er een stopcontact nodig is.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Fabrikanten, handleidingen en verkopers (onder meer Tunturi, VirtuFit, FitBike, Flow en Toorx). Prijzen van bol.com.</dd></div>
+        <div><dt>Peildatum</dt><dd>11 november 2026 (prijzen). Specificaties uit fabrikantbronnen, bereik 23 oktober tot en met 11 november 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>15 producten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/hometrainers-gewicht-instap-afmetingen.csv" download>Download CSV</a>
+        <a href="https://hometrainerwijzer.nl/welke-hometrainer-past-bij-mij#dataset">Bekijk op Hometrainerwijzer</a>
+      </p>
+    </article>
+    <article class="card" id="pizzaovens">
+      <h2>Pizzaovens: brandstof, vermogen, gasverbruik en pizzamaat</h2>
+      <p>Zeventien pizzaovens vergeleken op brandstof, maximale pizzamaat, vermogen, gasverbruik, maximale temperatuur, gewicht en of de oven binnen kan.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Fabrikantpagina's en handleidingen (onder meer Ooni, Witt, Cozze, Ninja, Domo en Solo Stove). Prijzen van bol.com.</dd></div>
+        <div><dt>Peildatum</dt><dd>11 november 2026 (prijzen). Specificaties uit fabrikantbronnen, bereik 23 oktober tot en met 11 november 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>17 producten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/pizzaovens-vermogen-verbruik-pizzamaat.csv" download>Download CSV</a>
+        <a href="https://pizzaovenwijzer.nl/kosten-per-pizza#dataset">Bekijk op Pizzaovenwijzer</a>
+      </p>
+    </article>
+    <article class="card" id="hondenbenches">
+      <h2>Hondenbenches en autobenches: maten en materiaal</h2>
+      <p>Negen benches en autobenches met materiaal, binnenmaten, maximaal hondgewicht en crashtestinformatie, voor zover de fabrikant die vermeldt.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Fabrikant- en verkopersgegevens (onder meer Thule, 4pets, Cadoca en Flamingo). Prijzen van bol.com (niet leverbaar = geen prijs).</dd></div>
+        <div><dt>Peildatum</dt><dd>11 november 2026 (prijzen). Specificaties uit fabrikantbronnen, bereik 23 oktober tot en met 11 november 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>9 producten</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/hondenbenches-maten.csv" download>Download CSV</a>
+        <a href="https://hondenopreiswijzer.nl/benchmaat-berekenen#dataset">Bekijk op Hondenopreiswijzer</a>
+      </p>
+    </article>
+    <article class="card" id="prijsindex-kozijnen-2026">
+      <h2>Prijsindex kozijnen 2026</h2>
+      <p>Openbare prijzen voor kozijnen, glas en schuifpuien, met per regel de bron, de bron-URL en de peildatum. 42 rijen, gebundeld uit overheids- en marktbronnen.</p>
+      <dl>
+        <div><dt>Bronnen</dt><dd>Verbeterjehuis (Rijksoverheid / Kenniscentrum Duurzaam Leven), Kenniscentrum Duurzaam Leven, RVO, Homedeal, Kozijnen2000 en Mijn Groene Huis. De bron-URL staat per regel in de CSV.</dd></div>
+        <div><dt>Peildatum</dt><dd>Per regel in de CSV, van 1 januari 2025 tot en met 17 september 2026 (datum van de bron). Dataset op de site bijgewerkt op 22 oktober 2026.</dd></div>
+        <div><dt>Omvang</dt><dd>42 rijen</dd></div>
+      </dl>
+      <p class="actions">
+        <a class="btn" href="data/prijsindex-kozijnen-2026.csv" download>Download CSV</a>
+        <a href="https://kozijnraad.nl/prijsindex-kozijnen-2026">Bekijk op Kozijnraad</a>
+      </p>
+    </article>
+    <section class="note" id="niet-opgenomen">
+      <h2>Geen CSV, wel open bestanden</h2>
+      <p>De thuisbatterij-simulator op <a href="https://opslagraad.nl/thuisbatterij-capaciteit-berekenen">Opslagraad</a> gebruikt open uurdata van NEDU (profiel 2026) en PVGIS (De Bilt, 2021–2023). Die bestanden staan op de site als JSON, niet als CSV, en zitten daarom niet in deze bundel. Ze zijn wel publiek: <code>/data/batterij/profiel-2026.json</code> en <code>pv-2021.json</code>, <code>pv-2022.json</code> en <code>pv-2023.json</code>.</p>
+    </section>
+  </main>
+  <footer>
+    <p>Uitgever: Mosaic Solutions, Ribeslaan 23, Schiedam. KvK 42050918.</p>
+    <p>Bedoelde publicatielocatie: <a href="https://jarvisproductionshub.github.io/open-data/">jarvisproductionshub.github.io/open-data</a>. Deze map is lokaal opgebouwd en nog niet gepubliceerd. De canonieke versie van elke dataset staat op de bronpagina van de eigen site.</p>
+  </footer>
+</body>
+</html>
