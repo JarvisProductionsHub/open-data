@@ -8,7 +8,7 @@ Zo verdienen we: de productsites krijgen een vergoeding via affiliate-links (o.a
 
 Licentie: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.nl). Bij hergebruik vermeld je Mosaic Solutions en de oorspronkelijke bronnen in de dataset. Zie ook [LICENSE](LICENSE).
 
-Bedoelde publicatielocatie: <https://jarvisproductionshub.github.io/open-data/>. Deze map is lokaal opgebouwd en nog niet gepubliceerd. De canonieke versie van elke dataset staat op de bronpagina van de eigen site.
+Gepubliceerd op <https://jarvisproductionshub.github.io/open-data/>. De canonieke versie van elke dataset staat op de bronpagina van de eigen site.
 
 ## Datasets
 
