@@ -112,6 +112,26 @@ Openbare prijzen voor kozijnen, glas en schuifpuien, met per regel de bron, de b
 - **Download:** [prijsindex-kozijnen-2026.csv](data/prijsindex-kozijnen-2026.csv)
 - [Bekijk op Kozijnraad](https://kozijnraad.nl/prijsindex-kozijnen-2026)
 
+### Amerikaanse koelkasten: energieverbruik, inhoud en maten
+
+Zevenentwintig Amerikaanse koelkasten (side-by-side en French door) naast elkaar: energielabel, jaarverbruik in kWh, totale inhoud, koel- en vriesruimte, breedte, hoogte, diepte (als bol die noemt), geluid, dispenser en No Frost. Met een zelf berekende kolom kWh per 100 liter inhoud, zodat je grote en kleine modellen eerlijk kunt vergelijken. De tabel is gesorteerd op die kolom.
+
+- **Bronnen:** Productgegevens van bol.com (Marketing Catalog API), per regel met de bron-URL. Geen eigen metingen. Berekend: kwh_per_100l = jaarverbruik_kwh / inhoud_l × 100.
+- **Peildatum:** 14 november 2026 (specificaties en prijzen).
+- **Omvang:** 27 producten
+- **Download:** [amerikaanse-koelkasten-energieverbruik-maten.csv](data/amerikaanse-koelkasten-energieverbruik-maten.csv)
+- [Bekijk op De Kookwijzer](https://dekookwijzer.nl/energiezuinige-amerikaanse-koelkast)
+
+### Airfryers: inhoud, vermogen, PFAS-vrij en prijs per liter
+
+Zevenendertig airfryers, van mini (2 liter) tot dual basket en airfryer-oven: inhoud, type, vermogen, maximale temperatuur, of bol ze PFAS-vrij noemt, de antikleeflaag, vaatwasserbestendig, kijkvenster en de door bol opgegeven bakcapaciteit friet. Met een zelf berekende kolom euro per liter inhoud.
+
+- **Bronnen:** Productgegevens van bol.com (Marketing Catalog API), per regel met de bron-URL. "PFAS-vrij" en de bakcapaciteit friet zijn zoals bol ze opgeeft, niet door ons gecontroleerd. Berekend: eur_per_liter = prijs_bol_eur / inhoud_l.
+- **Peildatum:** 14 november 2026 (specificaties en prijzen).
+- **Omvang:** 37 producten
+- **Download:** [airfryers-inhoud-vermogen-pfas.csv](data/airfryers-inhoud-vermogen-pfas.csv)
+- [Bekijk op De Kookwijzer](https://dekookwijzer.nl/airfryers)
+
 ## Geen CSV, wel open bestanden
 
 De thuisbatterij-simulator op [Opslagraad](https://opslagraad.nl/thuisbatterij-capaciteit-berekenen) gebruikt open uurdata van NEDU (profiel 2026) en PVGIS (De Bilt, 2021–2023). Die bestanden staan op de site als JSON, niet als CSV, en zitten daarom niet in deze bundel. Ze zijn wel publiek: `/data/batterij/profiel-2026.json` en `pv-2021.json`, `pv-2022.json` en `pv-2023.json`.
