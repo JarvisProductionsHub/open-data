@@ -22,6 +22,16 @@ Zoekbare tabel van alle Nederlandse gemeenten: aantal fietsdiefstallen in 2024 e
 - **Download:** [fietsdiefstal-per-gemeente-2025.csv](data/fietsdiefstal-per-gemeente-2025.csv)
 - [Bekijk op Tweewielerwijzer](https://www.tweewielerwijzer.nl/gids/fietsdiefstal-per-gemeente#bron-vermelden)
 
+### Slot-eisen fietsverzekeraars (tweede slot en ART)
+
+Tien fietsverzekeraars naast elkaar: welk ART-slot ze eisen, of een tweede slot verplicht is bij e-bikes, of de fiets vastgezet moet worden aan een vast voorwerp, en het eigen risico bij diefstal. Per regel een bron-URL, een peildatum en een citaat uit de openbare voorwaarden. Geen eigen tests.
+
+- **Bronnen:** Openbare polisvoorwaarden en productpagina's van ANWB, ENRA, Univé, Unigarant, Kingpolis, Centraal Beheer, Interpolis, InShared, Allianz Assistance en Fietszeker. De bron-URL staat per regel in de CSV.
+- **Peildatum:** Per regel in de CSV: 16 of 20 november 2026.
+- **Omvang:** 10 verzekeraars
+- **Download:** [tweewielerwijzer-slot-eisen-verzekeraars.csv](data/tweewielerwijzer-slot-eisen-verzekeraars.csv)
+- [Bekijk op Tweewielerwijzer](https://www.tweewielerwijzer.nl/gids/tweede-slot-e-bike-verzekering#slot-eisen-per-verzekeraar)
+
 ### Powerstations: prijs per Wh, Wh per kg en laadcycli
 
 Vergelijking van 13 draagbare powerstations op wattuur, vermogen, gewicht en laadcycli, met zelf berekende kolommen voor euro per Wh, Wh per kg en euro per kWh over de cycli.
